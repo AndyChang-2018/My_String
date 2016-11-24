@@ -251,7 +251,105 @@ int strcmp(const char *str1,const char *str2)
 	return *str1 - *str2;
 }
 
-	
-	
-	
+
 */
+
+//对比指定位数的字符
+int My_strncmp(const char *allstr, const char * str, int str_count)
+{
+
+	char *p_fir = allstr;
+	char *p_sec = str;
+
+
+	if (*p_fir != *p_sec )
+	{
+		if (*p_fir < *p_sec)
+		{
+			return *p_fir - *p_sec;
+		}
+		else
+		{
+			return *p_fir - *p_sec;
+		}
+	}
+
+
+	for (int i = 1; i < str_count; i++)
+	{
+		if (p_fir[i] != p_sec[i])                //判断是否相同
+		{
+			if (p_fir[i] < p_sec[i])
+			{
+				return p_fir[i] - p_sec[i];
+			}
+			else
+			{
+				return p_fir[i] - p_sec[i];
+			}                                     //有位置不一样，跳出内层循环
+		}
+
+	}
+
+	return 0;
+}
+
+
+//从源字符串地址拷贝字符到目标字符串地址中。
+char *My_strcpy(char *allstr, char *str)
+{
+	char *p_fir = allstr;
+	char *p_sec = str;
+	while (*p_fir != '\0' && *p_sec != '\0')
+	{
+		*p_fir++ = *p_sec++;
+	}
+	return allstr;
+
+}
+
+/*
+//C语言标准库函数strcpy的一种典型的工业级的最简实现。
+//返回值：目标串的地址。
+//对于出现异常的情况ANSI-C99标准并未定义，故由实现者决定返回值，通常为NULL。
+//参数：des为目标字符串，source为原字符串。
+char* strcpy(char* des,const char* source)
+ {
+    char* r=des;
+ 
+    assert((des != NULL) && (source != NULL));  //做了传入指针判断。
+
+  　while((*des++ = *source++)!='\0');   //while((*des++=*source++));的解释：赋值表达式返回左操作数，所以在赋值'\0'后，循环停止。
+
+	return r;	　
+}
+*/
+
+//从源字符串地址拷贝N个字符到目标字符串地址中。
+char *My_strncpy(char *allstr, char *str, int str_count)
+{
+	char *p_fir = allstr;
+	char *p_sec = str;
+
+	for (int i = 0; i < str_count; i++)
+	{
+		*p_fir++ = *p_sec++;
+		if (*p_sec == '\0')
+			break;
+	}
+
+	return allstr;
+}
+
+//查找字符串s中首次出现字符c的位置
+char *My_strchr(char *s, char c)
+{
+	char *p_fir = s;
+	while (*p_fir != c && *p_fir !='\0')
+	{
+		p_fir++;
+	}
+
+	return p_fir;
+
+}

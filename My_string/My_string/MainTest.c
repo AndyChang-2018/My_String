@@ -66,7 +66,7 @@ int main(void)
 	puts(b);
 	puts(d);
 
-	if (ret3 = strap(b, d))
+	if (ret3 = My_strcmp(b, d))
 	{
 		printf("%d\n", ret3);
 		puts("wrong string~~~~~~~~~");
@@ -77,8 +77,35 @@ int main(void)
 		printf("%d\n", ret3);
 	}
 
+	puts(a);
+	puts(b);
+	puts(d);
 
-	printf("\n%p", strchr(a, 'c'));
+	int ret4 = 0; 
+	
+	if (ret4 = My_strncmp(b, d , 3 ))
+	{
+		printf("%d\n", ret4);
+		puts("ret4 wrong string~~~~~~~~~");
+	}
+	else
+	{
+		puts("ret4 hahaha~~~~~~~~~");
+		printf("%d\n", ret4);
+	}
+
+	char *p5 = My_strcpy(d,a);
+
+	puts(a);
+	puts(d);
+
+	char array1[20] = "andychang";
+	char array2[10] = "jack";
+	char *p6 = My_strncpy(array1, array2, 10);
+	puts(array1);
+
+
+	printf("\n%p", My_strchr(a, 'c'));
 	printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 	printf("\n%p__________%p______%d", strstr(a, "ang"), My_strstr(a, "g123"), My_strcount(a, "g123"));
 	printf("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");

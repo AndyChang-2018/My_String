@@ -56,3 +56,5 @@ Temporary Items
 *.opensdf
 *.sln
 *.vcxproj
+*.ilk
+*.exe
